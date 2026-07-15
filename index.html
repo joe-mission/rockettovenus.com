@@ -319,15 +319,37 @@
 					</footer><!-- /.section__foot -->
 				</section><!-- /.section -->
 				
-				<!-- Empty Instagram feed gallery removed (old Instagram API no longer populates #instafeed, leaving an empty black block). To restore, delete this comment wrapper.
-<section class="section-gallery">
-					<div class="section__body">
-						<ul class="list-gallery" id="instafeed">
-							
-						</ul>
-					</div><!(  /.section__body  )>
-				</section><!(  /.section  )>
--->
+				<!-- Rotating photo feed (replaces the old dead Instagram feed). Squares in assets/images/feed/, shuffled every 4s, not clickable. -->
+				<section class="rtv-feed" aria-label="Photos from Rocket to Venus">
+					<div class="rtv-feed__row" id="rtvFeed">
+						<div class="rtv-feed__tile"></div>
+						<div class="rtv-feed__tile"></div>
+						<div class="rtv-feed__tile"></div>
+						<div class="rtv-feed__tile"></div>
+						<div class="rtv-feed__tile"></div>
+						<div class="rtv-feed__tile"></div>
+					</div>
+				</section>
+				<style>
+				.rtv-feed{background:#111;width:100%;line-height:0;}
+				.rtv-feed__row{display:flex;flex-wrap:wrap;}
+				.rtv-feed__tile{flex:0 0 16.6667%;max-width:16.6667%;aspect-ratio:1/1;background:#111 center/cover no-repeat;opacity:0;transition:opacity .6s ease;}
+				@media (max-width:900px){.rtv-feed__tile{flex-basis:33.3333%;max-width:33.3333%;}}
+				@media (max-width:520px){.rtv-feed__tile{flex-basis:50%;max-width:50%;}}
+				</style>
+				<script>
+				(function(){
+				  var pool=[];for(var i=1;i<=15;i++){pool.push('assets/images/feed/feed-'+('0'+i).slice(-2)+'.jpg');}
+				  pool.forEach(function(s){var im=new Image();im.src=s;});
+				  var tiles=[].slice.call(document.querySelectorAll('#rtvFeed .rtv-feed__tile'));
+				  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+				  function draw(n){return shuffle(pool).slice(0,n);}
+				  var first=draw(tiles.length);
+				  tiles.forEach(function(t,i){t.style.backgroundImage="url('"+first[i]+"')";t.style.opacity=1;});
+				  function rotate(){var pick=draw(tiles.length);tiles.forEach(function(t,i){setTimeout(function(){t.style.opacity=0;setTimeout(function(){t.style.backgroundImage="url('"+pick[i]+"')";t.style.opacity=1;},420);},i*90);});}
+				  setInterval(rotate,4000);
+				})();
+				</script>
 			</main><!-- /.main -->
 		<footer class="footer" style="background-image: url(assets/images/footer-image.png);">
 	<div class="shell">
