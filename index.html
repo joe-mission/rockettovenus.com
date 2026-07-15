@@ -336,7 +336,7 @@
 				</style>
 				<script>
 				(function(){
-				  var pool=[];for(var i=1;i<=15;i++){pool.push('assets/images/feed/feed-'+('0'+i).slice(-2)+'.jpg');}
+				  var pool=[];for(var i=1;i<=15;i++){if(i===1)continue;pool.push('assets/images/feed/feed-'+('0'+i).slice(-2)+'.jpg');}
 				  pool.forEach(function(s){var im=new Image();im.src=s;});
 				  var tiles=[].slice.call(document.querySelectorAll('#rtvFeed .rtv-feed__tile'));
 				  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
