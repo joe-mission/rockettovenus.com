@@ -319,11 +319,9 @@
 					</footer><!-- /.section__foot -->
 				</section><!-- /.section -->
 				
-				<!-- Rotating photo feed (replaces the old dead Instagram feed). Squares in assets/images/feed/, shuffled every 4s, not clickable. -->
+				<!-- Rotating photo feed (replaces the old dead Instagram feed). Squares in assets/images/feed/, shuffled every 7s, not clickable. -->
 				<section class="rtv-feed" aria-label="Photos from Rocket to Venus">
 					<div class="rtv-feed__row" id="rtvFeed">
-						<div class="rtv-feed__tile"></div>
-						<div class="rtv-feed__tile"></div>
 						<div class="rtv-feed__tile"></div>
 						<div class="rtv-feed__tile"></div>
 						<div class="rtv-feed__tile"></div>
@@ -333,9 +331,8 @@
 				<style>
 				.rtv-feed{background:#111;width:100%;line-height:0;}
 				.rtv-feed__row{display:flex;flex-wrap:wrap;}
-				.rtv-feed__tile{flex:0 0 16.6667%;max-width:16.6667%;aspect-ratio:1/1;background:#111 center/cover no-repeat;opacity:0;transition:opacity .6s ease;}
-				@media (max-width:900px){.rtv-feed__tile{flex-basis:33.3333%;max-width:33.3333%;}}
-				@media (max-width:520px){.rtv-feed__tile{flex-basis:50%;max-width:50%;}}
+				.rtv-feed__tile{flex:0 0 25%;max-width:25%;aspect-ratio:1/1;background:#111 center/cover no-repeat;opacity:0;transition:opacity .6s ease;}
+				@media (max-width:700px){.rtv-feed__tile{flex-basis:50%;max-width:50%;}}
 				</style>
 				<script>
 				(function(){
