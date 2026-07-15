@@ -347,7 +347,7 @@
 				  var first=draw(tiles.length);
 				  tiles.forEach(function(t,i){t.style.backgroundImage="url('"+first[i]+"')";t.style.opacity=1;});
 				  function rotate(){var pick=draw(tiles.length);tiles.forEach(function(t,i){setTimeout(function(){t.style.opacity=0;setTimeout(function(){t.style.backgroundImage="url('"+pick[i]+"')";t.style.opacity=1;},420);},i*90);});}
-				  setInterval(rotate,4000);
+				  setInterval(rotate,7000);
 				})();
 				</script>
 			</main><!-- /.main -->
